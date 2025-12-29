@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   ResponsiveContainer,
   PieChart,
@@ -41,6 +41,7 @@ import { db } from "./firebase";
 import type { Student } from "./types";
 import { parseStudentsFromExcel } from "./excelImport";
 import { computeStudent } from "./rules";
+import type { RawExcelRow } from "./rules";
 
 // אם אין לך mockStudents אפשר לשים []
 // import { mockStudents } from "./mock";
@@ -143,7 +144,7 @@ export default function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [mathFilter, setMathFilter] = useState<"All" | "3" | "4" | "5">("All");
   const [englishFilter, setEnglishFilter] = useState<"All" | "3" | "4" | "5">("All");
-  const [spec1Filter, setSpec1Filter] = useState<"All" | "מדעי המחשב" | "מידע ונתונים">("All");
+const [spec1Filter, setSpec1Filter] = useState<Spec1Filter>("All");
   const [spec2Filter, setSpec2Filter] = useState<Spec2Filter>("All");
 
   // Sort
